@@ -3,7 +3,7 @@ import React from 'react'
 import Cabecera from '../components/Cabecera'
 import BotonPropio from '../components/BotonPropio'
 
-const ItemScreen = ({setItemScreen}) => {
+const ItemScreen = ({setItemScreen,itemDetalle}) => {
   return (
     <View>
       <Cabecera/>
@@ -12,7 +12,8 @@ const ItemScreen = ({setItemScreen}) => {
             colorFondo={"#5DC966"}
             onPress={() => {setItemScreen(false)}}
             />
-      <Text>Hola</Text>
+        <Text style={styles.nombreTxt}>{itemDetalle.titulo}</Text>
+
 
     </View>
   )
@@ -20,4 +21,12 @@ const ItemScreen = ({setItemScreen}) => {
 
 export default ItemScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    nombreTxt:{
+        color: 'white',
+        fontSize:18,
+        margin: 20,
+        padding:10,
+        textAlign: "center"
+    }
+})

@@ -15,6 +15,7 @@ const  App = () => {
   const screenHeigth = Dimensions.get('window').height
   const [notHome, setHome] = useState(false);
   const [itemScreen, seItemScreen] = useState(false);
+  const [itemDetalle, setItemDetalle] = useState({})
   const [modalVisible, setModalVisible] = useState(false);
   const [tareaSelect, setTareaSelect] = useState({})
   const [tareaTitle,setTitle] = useState("")
@@ -46,6 +47,11 @@ const  App = () => {
     setModalVisible(!modalVisible)
     
   }
+  const onHandlerDetalle = (item) =>{
+    console.log(item)
+    setItemDetalle(item)
+    
+  }
   const borrarTarea = () =>{
     setArrTarea(arrTarea.filter(tareita => tareita.id != tareaSelect.id))
     setModalVisible(!modalVisible)
@@ -60,7 +66,11 @@ const  App = () => {
   return (
     <View style={styles.container}>
       {notHome ? 
-        itemScreen ? <ItemScreen setItemScreen={seItemScreen}/> :
+        itemScreen ? 
+        <ItemScreen 
+        setItemScreen={seItemScreen}
+        itemDetalle = {itemDetalle}
+        /> :
         <ColeccionScreen
         tareaTitle= {tareaTitle} 
         onHandlerTitle= {onHandlerTitle}
@@ -77,6 +87,7 @@ const  App = () => {
         borrarTarea = {borrarTarea}
         setHome={setHome}
         seItemScreen = {seItemScreen} 
+        onHandlerDetalle = {onHandlerDetalle}
         /> : 
         <Home setHome={setHome}/> 
 
