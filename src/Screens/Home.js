@@ -3,14 +3,14 @@ import React from 'react'
 import Cabecera from '../components/Cabecera'
 import BotonPropio from '../components/BotonPropio'
 
-const Home = () => {
+const Home = ({setHome}) => {
   return (
     <View>
       <Cabecera/> 
       <BotonPropio
             nombre={"Mis plantas"}
             colorFondo={"#5DC966"}
-            onPress={() => {console.log("Mis plantas")}}
+            onPress={() => {setHome(true)}}
             />
         <BotonPropio
             nombre={"+ Info"}
@@ -23,4 +23,13 @@ const Home = () => {
 
 export default Home
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#CAF0E6',
+        alignItems: 'center',
+        justifyContent: "flex-start",
+        gap:10,
+    
+      },
+})

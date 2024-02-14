@@ -8,10 +8,13 @@ import ListaTareas from './src/components/ListaTareas';
 import Cabecera from './src/components/Cabecera';
 import ColeccionScreen from './src/Screens/ColeccionScreen';
 import Home from './src/Screens/Home';
+import ItemScreen from './src/Screens/ItemScreen';
 
 const  App = () => {
   const screenWidth = Dimensions.get('window').width
   const screenHeigth = Dimensions.get('window').height
+  const [notHome, setHome] = useState(false);
+  const [itemScreen, seItemScreen] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [tareaSelect, setTareaSelect] = useState({})
   const [tareaTitle,setTitle] = useState("")
@@ -56,9 +59,31 @@ const  App = () => {
 
   return (
     <View style={styles.container}>
-      {/* <Text style = {styles.text} >Hola, Coder! Esta es mi primera entrega. </Text>
-        {/* <StatusBar style="auto" /> */}
-      <Home/>
+      {notHome ? 
+        itemScreen ? <ItemScreen setItemScreen={seItemScreen}/> :
+        <ColeccionScreen
+        tareaTitle= {tareaTitle} 
+        onHandlerTitle= {onHandlerTitle}
+        tareaDesc= {tareaDesc} 
+        onHandlerDesc= {onHandlerDesc}
+        agregarTarea= {agregarTarea}
+        screenWidth={screenWidth}
+        arrTarea = {arrTarea}
+        onHandlerModal = {onHandlerModal}
+        completeTask={completeTask}
+        screenHeigth = {screenHeigth}
+        modalVisible = {modalVisible}
+        tareaSelect = {tareaSelect}
+        borrarTarea = {borrarTarea}
+        setHome={setHome}
+        seItemScreen = {seItemScreen} 
+        /> : 
+        <Home setHome={setHome}/> 
+
+      }
+
+      
+      
       {/* <ColeccionScreen
         tareaTitle= {tareaTitle} 
         onHandlerTitle= {onHandlerTitle}

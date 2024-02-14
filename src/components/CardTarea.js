@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Button, Switch } from 'react-native'
 import React from 'react'
 import BotonPropio from './BotonPropio'
 
-const CardTarea = ({item, onHandlerModal, completeTask, screenWidth, screenHeigth}) => {
+const CardTarea = ({item, onHandlerModal, completeTask, screenWidth, screenHeigth, seItemScreen}) => {
   return (
     <View style = {[styles.card,{width:screenWidth -70,height:screenHeigth -550}]}>
         <View style = {styles.cabeceraCard}>
@@ -21,9 +21,9 @@ const CardTarea = ({item, onHandlerModal, completeTask, screenWidth, screenHeigt
                 onPress={() => onHandlerModal(item)}
             />
             <BotonPropio
-                nombre={"Editar"}
+                nombre={"Ver detalle"}
                 colorFondo={"#F5A69E"}
-                onPress={() => console.log("Editar")}
+                onPress={() => {seItemScreen(true)}}
             />
         </View>
         
