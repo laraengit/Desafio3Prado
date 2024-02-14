@@ -6,6 +6,8 @@ import ModalBorrarTarea from './src/components/ModalBorrarTarea';
 import AgregarTarea from './src/components/AgregarTarea';
 import ListaTareas from './src/components/ListaTareas';
 import Cabecera from './src/components/Cabecera';
+import ColeccionScreen from './src/Screens/ColeccionScreen';
+import Home from './src/Screens/Home';
 
 const  App = () => {
   const screenWidth = Dimensions.get('window').width
@@ -55,8 +57,24 @@ const  App = () => {
   return (
     <View style={styles.container}>
       {/* <Text style = {styles.text} >Hola, Coder! Esta es mi primera entrega. </Text>
-        {/* <StatusBar style="auto" /> */} 
-      <Cabecera/>
+        {/* <StatusBar style="auto" /> */}
+      <Home/>
+      {/* <ColeccionScreen
+        tareaTitle= {tareaTitle} 
+        onHandlerTitle= {onHandlerTitle}
+        tareaDesc= {tareaDesc} 
+        onHandlerDesc= {onHandlerDesc}
+        agregarTarea= {agregarTarea}
+        screenWidth={screenWidth}
+        arrTarea = {arrTarea}
+        onHandlerModal = {onHandlerModal}
+        completeTask={completeTask}
+        screenHeigth = {screenHeigth}
+        modalVisible = {modalVisible}
+        tareaSelect = {tareaSelect}
+        borrarTarea = {borrarTarea}
+      /> */}
+      {/* <Cabecera/>
       <AgregarTarea
         tareaTitle= {tareaTitle} 
         onHandlerTitle= {onHandlerTitle}
@@ -82,7 +100,7 @@ const  App = () => {
         borrarTarea = {borrarTarea}
         onHandlerModal = {onHandlerModal}
       />
-
+ */}
     </View>
   );
 }
